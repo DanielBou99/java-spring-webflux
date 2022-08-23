@@ -17,8 +17,11 @@ import java.time.Duration;
 @RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
     private ProductRepository repository;
+
+    public ProductController(ProductRepository repository) {
+        this.repository = repository;
+    }
 
     @GetMapping
     public Flux<Product> getAllProducts() {
